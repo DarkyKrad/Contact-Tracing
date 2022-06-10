@@ -1,0 +1,18 @@
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\Contact Tracing Form-1.exe
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\Contact Tracing Form-1.deps.json
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\Contact Tracing Form-1.runtimeconfig.json
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\Contact Tracing Form-1.dll
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\Contact Tracing Form-1.pdb
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.csproj.AssemblyReference.cache
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact_Tracing_Form_1.Form1.resources
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact_Tracing_Form_1.Properties.Resources.resources
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.csproj.GenerateResource.cache
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.AssemblyInfoInputs.cache
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.AssemblyInfo.cs
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.csproj.CoreCompileInputs.cache
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.dll
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\refint\Contact Tracing Form-1.dll
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.pdb
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.genruntimeconfig.cache
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\ref\Contact Tracing Form-1.dll
