@@ -5,6 +5,7 @@ namespace Contact_Tracing_Form_1
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,7 +31,20 @@ namespace Contact_Tracing_Form_1
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (txtFN.Text == "" || txtCA.Text == "" || txtPN.Text == "" || txtROV.Text == "" || txtTemp.Text == "" || txtTOV.Text == "" || cmbAge.Text == "" || cmbSex.Text == "" || dtpDOV.Text == "")
+            {
+                MessageBox.Show("Please fill out the remaining forms");
+                return;
+            }
+
+            if (!(rbQ1Y.Checked || rbQ1N.Checked)  || !(rbQ2Y.Checked || rbQ2N.Checked) || !((rbQ3Y.Checked || rbQ3N.Checked) || !(rbQ4Y.Checked || rbQ4N.Checked)))
+            {
+                MessageBox.Show("Please fill out the remaining forms");
+                return;
+            }
             StreamWriter file = new StreamWriter(@"C:\Users\Public\Desktop\test.txt", true);
+            file.WriteLine(txtFN.Text);
+            file.WriteLine(dtpDOV.Value.ToString("o"));
             file.WriteLine("Fullname: " + txtFN.Text);
             file.WriteLine("Complete Address: " + txtCA.Text);
             file.WriteLine("Phone Number: " + txtPN.Text);
@@ -41,43 +55,26 @@ namespace Contact_Tracing_Form_1
             file.WriteLine("Time of Visit: " + txtTOV.Text);
             file.WriteLine("Date of Visit: " + dtpDOV.Text);
 
-            if (rbQ1Y.Checked)
-            {
-                file.WriteLine("Question 1: Yes");
-            }
-            else if(rbQ1N.Checked)
-            {
-                file.WriteLine("Question 1: No");
-            }
-            if (rbQ2Y.Checked)
-            {
-                file.WriteLine("Question 2: Yes");
-            }    
-            else if(rbQ2N.Checked)
-            {
-                file.WriteLine("Question 2: No");
-            }
-            if (rbQ3Y.Checked)
-            {
-                file.WriteLine("Question 3: Yes");
-            }    
-            else if(rbQ3N.Checked)
-            {
-                file.WriteLine("Question 3: No");
-            }    
-            if (rbQ4Y.Checked)
-            {
-                file.WriteLine("Question 4: Yes");
-            }
-            else if(rbQ4N.Checked)
-            {
-                file.WriteLine("Question 4: No");
-            }
+            string choice = rbQ1Y.Checked ? "Yes" : "No";
+            file.WriteLine("Question 1: " + choice);
+            choice = rbQ2Y.Checked ? "Yes" : "No";
+            file.WriteLine("Question 2: " + choice);
+            choice = rbQ3Y.Checked ? "Yes" : "No";
+            file.WriteLine("Question 3: " + choice);
+            choice = rbQ4Y.Checked ? "Yes" : "No";
+            file.WriteLine("Question 4: " + choice);
+
 
             file.WriteLine();
             file.Close();
             MessageBox.Show("Thank you for your time!");
-            this.Close();
+            
+            Form2 form2 = new Form2();
+            form2.originalform = this;
+            form2.Show();
+            this.Hide();
+
+
         }
 
     }

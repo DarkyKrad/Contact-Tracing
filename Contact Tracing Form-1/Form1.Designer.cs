@@ -109,7 +109,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(505, 26);
+            this.label1.Location = new System.Drawing.Point(517, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 28);
             this.label1.TabIndex = 1;
@@ -148,7 +148,7 @@
             this.pnlPI.Controls.Add(this.label4);
             this.pnlPI.Controls.Add(this.txtFN);
             this.pnlPI.Controls.Add(this.label3);
-            this.pnlPI.Location = new System.Drawing.Point(12, 95);
+            this.pnlPI.Location = new System.Drawing.Point(12, 90);
             this.pnlPI.Name = "pnlPI";
             this.pnlPI.Size = new System.Drawing.Size(549, 286);
             this.pnlPI.TabIndex = 1;
@@ -417,7 +417,7 @@
             this.pnlHQ.Controls.Add(this.label11);
             this.pnlHQ.Controls.Add(this.btnReturn);
             this.pnlHQ.Controls.Add(this.btnSubmit);
-            this.pnlHQ.Location = new System.Drawing.Point(12, 95);
+            this.pnlHQ.Location = new System.Drawing.Point(12, 90);
             this.pnlHQ.Name = "pnlHQ";
             this.pnlHQ.Size = new System.Drawing.Size(549, 370);
             this.pnlHQ.TabIndex = 2;
@@ -562,7 +562,7 @@
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(29, 21);
+            this.label14.Location = new System.Drawing.Point(39, 23);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(350, 43);
             this.label14.TabIndex = 5;
