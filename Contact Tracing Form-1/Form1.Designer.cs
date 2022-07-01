@@ -33,7 +33,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlQRCode = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnGotoFilter = new System.Windows.Forms.Button();
+            this.picQRCODE = new System.Windows.Forms.PictureBox();
             this.pnlPI = new System.Windows.Forms.Panel();
+            this.dtpToV = new System.Windows.Forms.DateTimePicker();
             this.txtTemp = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.dtpDOV = new System.Windows.Forms.DateTimePicker();
@@ -45,7 +50,6 @@
             this.txtROV = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTOV = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPN = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -73,8 +77,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnQRCR = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlQRCode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picQRCODE)).BeginInit();
             this.pnlPI.SuspendLayout();
             this.pnlHQ.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -126,9 +133,53 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // pnlQRCode
+            // 
+            this.pnlQRCode.BackColor = System.Drawing.Color.White;
+            this.pnlQRCode.Controls.Add(this.label17);
+            this.pnlQRCode.Controls.Add(this.btnGotoFilter);
+            this.pnlQRCode.Controls.Add(this.picQRCODE);
+            this.pnlQRCode.ForeColor = System.Drawing.Color.Black;
+            this.pnlQRCode.Location = new System.Drawing.Point(12, 81);
+            this.pnlQRCode.Name = "pnlQRCode";
+            this.pnlQRCode.Size = new System.Drawing.Size(549, 361);
+            this.pnlQRCode.TabIndex = 3;
+            this.pnlQRCode.Visible = false;
+            this.pnlQRCode.VisibleChanged += new System.EventHandler(this.pnlQRCODE_visiblechanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label17.Location = new System.Drawing.Point(172, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(217, 43);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Thank You!";
+            // 
+            // btnGotoFilter
+            // 
+            this.btnGotoFilter.Location = new System.Drawing.Point(430, 320);
+            this.btnGotoFilter.Name = "btnGotoFilter";
+            this.btnGotoFilter.Size = new System.Drawing.Size(83, 23);
+            this.btnGotoFilter.TabIndex = 2;
+            this.btnGotoFilter.Text = "Filter";
+            this.btnGotoFilter.UseVisualStyleBackColor = true;
+            this.btnGotoFilter.Click += new System.EventHandler(this.btnGotoFilter_Click);
+            // 
+            // picQRCODE
+            // 
+            this.picQRCODE.Location = new System.Drawing.Point(39, 57);
+            this.picQRCODE.Name = "picQRCODE";
+            this.picQRCODE.Size = new System.Drawing.Size(474, 257);
+            this.picQRCODE.TabIndex = 0;
+            this.picQRCODE.TabStop = false;
+            // 
             // pnlPI
             // 
             this.pnlPI.BackColor = System.Drawing.Color.White;
+            this.pnlPI.Controls.Add(this.btnQRCR);
+            this.pnlPI.Controls.Add(this.dtpToV);
             this.pnlPI.Controls.Add(this.txtTemp);
             this.pnlPI.Controls.Add(this.label16);
             this.pnlPI.Controls.Add(this.dtpDOV);
@@ -140,7 +191,6 @@
             this.pnlPI.Controls.Add(this.txtROV);
             this.pnlPI.Controls.Add(this.label8);
             this.pnlPI.Controls.Add(this.label7);
-            this.pnlPI.Controls.Add(this.txtTOV);
             this.pnlPI.Controls.Add(this.label6);
             this.pnlPI.Controls.Add(this.txtPN);
             this.pnlPI.Controls.Add(this.label5);
@@ -148,10 +198,19 @@
             this.pnlPI.Controls.Add(this.label4);
             this.pnlPI.Controls.Add(this.txtFN);
             this.pnlPI.Controls.Add(this.label3);
-            this.pnlPI.Location = new System.Drawing.Point(12, 90);
+            this.pnlPI.Location = new System.Drawing.Point(12, 82);
             this.pnlPI.Name = "pnlPI";
             this.pnlPI.Size = new System.Drawing.Size(549, 286);
             this.pnlPI.TabIndex = 1;
+            // 
+            // dtpToV
+            // 
+            this.dtpToV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpToV.Location = new System.Drawing.Point(309, 31);
+            this.dtpToV.Name = "dtpToV";
+            this.dtpToV.ShowUpDown = true;
+            this.dtpToV.Size = new System.Drawing.Size(89, 23);
+            this.dtpToV.TabIndex = 22;
             // 
             // txtTemp
             // 
@@ -178,7 +237,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(382, 176);
+            this.btnNext.Location = new System.Drawing.Point(455, 201);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 18;
@@ -339,13 +398,6 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Date of Visit:";
             // 
-            // txtTOV
-            // 
-            this.txtTOV.Location = new System.Drawing.Point(308, 31);
-            this.txtTOV.Name = "txtTOV";
-            this.txtTOV.Size = new System.Drawing.Size(94, 23);
-            this.txtTOV.TabIndex = 7;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -417,7 +469,7 @@
             this.pnlHQ.Controls.Add(this.label11);
             this.pnlHQ.Controls.Add(this.btnReturn);
             this.pnlHQ.Controls.Add(this.btnSubmit);
-            this.pnlHQ.Location = new System.Drawing.Point(12, 90);
+            this.pnlHQ.Location = new System.Drawing.Point(12, 82);
             this.pnlHQ.Name = "pnlHQ";
             this.pnlHQ.Size = new System.Drawing.Size(549, 370);
             this.pnlHQ.TabIndex = 2;
@@ -615,13 +667,24 @@
             this.btnSubmit.Visible = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnQRCR
+            // 
+            this.btnQRCR.Location = new System.Drawing.Point(309, 201);
+            this.btnQRCR.Name = "btnQRCR";
+            this.btnQRCR.Size = new System.Drawing.Size(75, 23);
+            this.btnQRCR.TabIndex = 23;
+            this.btnQRCR.Text = "QRCode Reader";
+            this.btnQRCR.UseVisualStyleBackColor = true;
+            this.btnQRCR.Click += new System.EventHandler(this.btnQRCR_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(573, 472);
+            this.ClientSize = new System.Drawing.Size(573, 460);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlQRCode);
             this.Controls.Add(this.pnlHQ);
             this.Controls.Add(this.pnlPI);
             this.Controls.Add(this.panel1);
@@ -633,6 +696,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlQRCode.ResumeLayout(false);
+            this.pnlQRCode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picQRCODE)).EndInit();
             this.pnlPI.ResumeLayout(false);
             this.pnlPI.PerformLayout();
             this.pnlHQ.ResumeLayout(false);
@@ -656,7 +722,6 @@
         private Label label2;
         private Panel pnlPI;
         private Label label7;
-        private TextBox txtTOV;
         private Label label6;
         private TextBox txtPN;
         private Label label5;
@@ -694,5 +759,11 @@
         private GroupBox groupBox3;
         private GroupBox groupBox2;
         private GroupBox groupBox1;
+        private Panel pnlQRCode;
+        private PictureBox picQRCODE;
+        private Button btnGotoFilter;
+        private Label label17;
+        private DateTimePicker dtpToV;
+        private Button btnQRCR;
     }
 }

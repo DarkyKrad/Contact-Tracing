@@ -17,3 +17,9 @@ C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\De
 C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.genruntimeconfig.cache
 C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\ref\Contact Tracing Form-1.dll
 C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact_Tracing_Form_1.Form2.resources
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\zxing.dll
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact Tracing Form-1.csproj.CopyComplete
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\obj\Debug\net6.0-windows\Contact_Tracing_Form_1.Form3.resources
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\AForge.dll
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\AForge.Video.dll
+C:\Users\Iaori\source\repos\Contact Tracing Form-1\Contact Tracing Form-1\bin\Debug\net6.0-windows\AForge.Video.DirectShow.dll

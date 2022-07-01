@@ -1,10 +1,46 @@
+using ZXing;
+using ZXing.Common;
+using ZXing.Rendering;
+using System.Linq;
+using System.Text.Json;
+
 namespace Contact_Tracing_Form_1
 {
     public partial class Form1 : Form
     {
+        private Form2 form2 = new Form2();
+        private Form3 form3 = new Form3();
         public Form1()
         {
             InitializeComponent();
+            form3.QRCodeRead += qrcodeauto_fill;
+        }
+        private void qrcodeauto_fill(object sender, QRCodeReadEventArgs e)
+        {
+            string json = e.Data;
+            ContactTracingInfo? data = JsonSerializer.Deserialize<ContactTracingInfo>(json);
+            if (data is not null)
+            {
+                txtFN.Text = data.FullName;
+                txtCA.Text = data.CompleteAddress;
+                txtPN.Text = data.PhoneNumber;
+                txtROV.Text = data.RoV;
+                txtTemp.Text = data.Temperature;
+                cmbAge.Text = data.Age;
+                cmbSex.Text = data.Sex;
+                dtpDOV.Value = data.DToV.Date;
+                dtpToV.Value = data.DToV;
+
+                rbQ1Y.Checked = data.Question1;
+                rbQ2Y.Checked = data.Question2;
+                rbQ3Y.Checked = data.Question3;
+                rbQ4Y.Checked = data.Question4;
+
+                rbQ1N.Checked = !data.Question1;
+                rbQ2N.Checked = !data.Question2;
+                rbQ3N.Checked = !data.Question3;
+                rbQ4N.Checked = !data.Question4;
+            }
 
         }
 
@@ -31,13 +67,13 @@ namespace Contact_Tracing_Form_1
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtFN.Text == "" || txtCA.Text == "" || txtPN.Text == "" || txtROV.Text == "" || txtTemp.Text == "" || txtTOV.Text == "" || cmbAge.Text == "" || cmbSex.Text == "" || dtpDOV.Text == "")
+            if (txtFN.Text == "" || txtCA.Text == "" || txtPN.Text == "" || txtROV.Text == "" || txtTemp.Text == "" || dtpToV.Text == "" || cmbAge.Text == "" || cmbSex.Text == "" || dtpDOV.Text == "")
             {
                 MessageBox.Show("Please fill out the remaining forms");
                 return;
             }
 
-            if (!(rbQ1Y.Checked || rbQ1N.Checked)  || !(rbQ2Y.Checked || rbQ2N.Checked) || !((rbQ3Y.Checked || rbQ3N.Checked) || !(rbQ4Y.Checked || rbQ4N.Checked)))
+            if (!(rbQ1Y.Checked || rbQ1N.Checked) || !(rbQ2Y.Checked || rbQ2N.Checked) || !((rbQ3Y.Checked || rbQ3N.Checked) || !(rbQ4Y.Checked || rbQ4N.Checked)))
             {
                 MessageBox.Show("Please fill out the remaining forms");
                 return;
@@ -52,7 +88,7 @@ namespace Contact_Tracing_Form_1
             file.WriteLine("Sex: " + cmbSex.Text);
             file.WriteLine("Temperature: " + txtTemp.Text);
             file.WriteLine("Reason of Visit: " + txtROV.Text);
-            file.WriteLine("Time of Visit: " + txtTOV.Text);
+            file.WriteLine("Time of Visit: " + dtpToV.Text);
             file.WriteLine("Date of Visit: " + dtpDOV.Text);
 
             string choice = rbQ1Y.Checked ? "Yes" : "No";
@@ -67,15 +103,73 @@ namespace Contact_Tracing_Form_1
 
             file.WriteLine();
             file.Close();
-            MessageBox.Show("Thank you for your time!");
+
+            pnlQRCode.Visible = true;
+            pnlHQ.Visible = false;
+            pnlPI.Visible = false;
+            btnSubmit.Visible = false;
+            btnNext.Visible = false;
             
-            Form2 form2 = new Form2();
+        }
+       
+        private void pnlQRCODE_visiblechanged(object sender, EventArgs e)
+        {
+            var data = new ContactTracingInfo
+            {
+                FullName = txtFN.Text,
+                DToV = dtpDOV.Value.Date + dtpToV.Value.TimeOfDay,
+                CompleteAddress = txtCA.Text,
+                PhoneNumber = txtPN.Text,
+                Age = cmbAge.Text,
+                Sex = cmbSex.Text,
+                Temperature = txtTemp.Text,
+                RoV = txtROV.Text,
+                Question1 = rbQ1Y.Checked,
+                Question2 = rbQ2Y.Checked,
+                Question3 = rbQ3Y.Checked,
+                Question4 = rbQ4Y.Checked,
+            };
+                var width = picQRCODE.Width;
+                var height = picQRCODE.Height;
+                IBarcodeWriter<PixelData> writer = new BarcodeWriterPixelData
+                {
+
+                    Format = BarcodeFormat.QR_CODE,
+                    Options = new EncodingOptions
+                    {
+                        Height = picQRCODE.Height,
+                        Width = picQRCODE.Width
+                    },
+                };
+
+                var pixelData = writer.Write(JsonSerializer.Serialize(data));
+                var Bitmap = new Bitmap(width, height);
+                foreach ((byte[] pixel, int index) in pixelData.Pixels.Chunk(4).Zip(Enumerable.Range(0, Width * Height)))
+                {
+
+                    var color = Color.FromArgb(pixel[3], pixel[2], pixel[1], pixel[0]);
+                    var y = index / width;
+                    var x = index % width;
+
+                    Bitmap.SetPixel(x, y, color);
+
+                }
+                picQRCODE.Image = Bitmap;
+            }
+
+        private void btnGotoFilter_Click(object sender, EventArgs e)
+        {
+            
             form2.originalform = this;
             form2.Show();
             this.Hide();
-
-
         }
 
+        private void btnQRCR_Click(object sender, EventArgs e)
+        {
+            form3.Show();
+        }
     }
-}
+    }
+
+
