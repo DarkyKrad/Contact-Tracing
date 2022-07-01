@@ -8,12 +8,12 @@ namespace Contact_Tracing_Form_1
 {
     public partial class Form1 : Form
     {
-        private Form2 form2 = new Form2();
-        private Form3 form3 = new Form3();
+        private Form2 form2;
+        private Form3 form3;
         public Form1()
         {
             InitializeComponent();
-            form3.QRCodeRead += qrcodeauto_fill;
+            
         }
         private void qrcodeauto_fill(object sender, QRCodeReadEventArgs e)
         {
@@ -159,7 +159,7 @@ namespace Contact_Tracing_Form_1
 
         private void btnGotoFilter_Click(object sender, EventArgs e)
         {
-            
+            form2 = new Form2(); 
             form2.originalform = this;
             form2.Show();
             this.Hide();
@@ -167,7 +167,17 @@ namespace Contact_Tracing_Form_1
 
         private void btnQRCR_Click(object sender, EventArgs e)
         {
-            form3.Show();
+            if (form3 is null)
+            {
+                form3 = new Form3();
+                form3.QRCodeRead += qrcodeauto_fill;
+                form3.FormClosed += delegate (object sender, FormClosedEventArgs e)
+                {
+                    form3 = null;
+                };
+                form3.Show();
+            }
+            
         }
     }
     }

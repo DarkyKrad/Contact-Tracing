@@ -46,14 +46,16 @@ namespace Contact_Tracing_Form_1
         private void CaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
-
         }
 
         private void form3_closing(object sender, FormClosingEventArgs e)
         {
             stopCapture();
         }
-
+        private void videocaptureerror(object sender, VideoSourceErrorEventArgs e)
+        {
+            txtError.Text = e.Description;
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -115,9 +117,11 @@ namespace Contact_Tracing_Form_1
             {
                 captureDevice = new VideoCaptureDevice(filterInfoCollection[cmbDevices.SelectedIndex].MonikerString);
                 captureDevice.NewFrame += CaptureDevice_NewFrame;
+                captureDevice.VideoSourceError += videocaptureerror;
                 captureDevice.Start();
                 timer1.Start();
             }
+
         }
 
         private void cmb_changed(object sender, EventArgs e)

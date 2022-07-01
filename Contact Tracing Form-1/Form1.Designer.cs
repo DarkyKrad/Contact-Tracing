@@ -38,6 +38,7 @@
             this.btnGotoFilter = new System.Windows.Forms.Button();
             this.picQRCODE = new System.Windows.Forms.PictureBox();
             this.pnlPI = new System.Windows.Forms.Panel();
+            this.btnQRCR = new System.Windows.Forms.Button();
             this.dtpToV = new System.Windows.Forms.DateTimePicker();
             this.txtTemp = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnQRCR = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlQRCode.SuspendLayout();
@@ -202,6 +202,16 @@
             this.pnlPI.Name = "pnlPI";
             this.pnlPI.Size = new System.Drawing.Size(549, 286);
             this.pnlPI.TabIndex = 1;
+            // 
+            // btnQRCR
+            // 
+            this.btnQRCR.Location = new System.Drawing.Point(309, 201);
+            this.btnQRCR.Name = "btnQRCR";
+            this.btnQRCR.Size = new System.Drawing.Size(75, 23);
+            this.btnQRCR.TabIndex = 23;
+            this.btnQRCR.Text = "QRCode Reader";
+            this.btnQRCR.UseVisualStyleBackColor = true;
+            this.btnQRCR.Click += new System.EventHandler(this.btnQRCR_Click);
             // 
             // dtpToV
             // 
@@ -666,16 +676,6 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Visible = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnQRCR
-            // 
-            this.btnQRCR.Location = new System.Drawing.Point(309, 201);
-            this.btnQRCR.Name = "btnQRCR";
-            this.btnQRCR.Size = new System.Drawing.Size(75, 23);
-            this.btnQRCR.TabIndex = 23;
-            this.btnQRCR.Text = "QRCode Reader";
-            this.btnQRCR.UseVisualStyleBackColor = true;
-            this.btnQRCR.Click += new System.EventHandler(this.btnQRCR_Click);
             // 
             // Form1
             // 

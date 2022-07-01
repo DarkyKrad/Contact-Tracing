@@ -33,6 +33,7 @@
             this.cmbDevices = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtError = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,11 +67,20 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // txtError
+            // 
+            this.txtError.Location = new System.Drawing.Point(443, 61);
+            this.txtError.Multiline = true;
+            this.txtError.Name = "txtError";
+            this.txtError.Size = new System.Drawing.Size(100, 339);
+            this.txtError.TabIndex = 3;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 412);
+            this.ClientSize = new System.Drawing.Size(555, 412);
+            this.Controls.Add(this.txtError);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cmbDevices);
             this.Controls.Add(this.label1);
@@ -96,5 +106,6 @@
         private ComboBox cmbDevices;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private TextBox txtError;
     }
 }
