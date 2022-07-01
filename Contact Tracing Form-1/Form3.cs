@@ -25,11 +25,12 @@ namespace Contact_Tracing_Form_1
 
         public delegate void QRCodeReadEventHandler(object sender, QRCodeReadEventArgs eventArgs);
         public event QRCodeReadEventHandler QRCodeRead;
-
+       
 
         public Form3()
         {
             InitializeComponent();
+        
         }
 
         FilterInfoCollection filterInfoCollection;
@@ -45,17 +46,21 @@ namespace Contact_Tracing_Form_1
 
         private void CaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
+            Debug.WriteLine("Newframe");
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
+            
         }
 
         private void form3_closing(object sender, FormClosingEventArgs e)
         {
             stopCapture();
         }
-        private void videocaptureerror(object sender, VideoSourceErrorEventArgs e)
+        private void videocaptureerror(object sender, ReasonToFinishPlaying e)
         {
-            txtError.Text = e.Description;
+            Debug.WriteLine(e.ToString());
+            
         }
+     
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -84,9 +89,10 @@ namespace Contact_Tracing_Form_1
                 };
 
                 Result result = barcodeReader.Decode(rgbValues, bmp.Width, bmp.Height, bitmapFormat);
-                if (result is not null)
-                {
 
+                if (result?.Text is not null)
+
+                { 
                     timer1.Stop();
                     stopCapture();
                     QRCodeRead(this, new QRCodeReadEventArgs { Data = result.Text });
@@ -117,7 +123,7 @@ namespace Contact_Tracing_Form_1
             {
                 captureDevice = new VideoCaptureDevice(filterInfoCollection[cmbDevices.SelectedIndex].MonikerString);
                 captureDevice.NewFrame += CaptureDevice_NewFrame;
-                captureDevice.VideoSourceError += videocaptureerror;
+                captureDevice.PlayingFinished += videocaptureerror;
                 captureDevice.Start();
                 timer1.Start();
             }

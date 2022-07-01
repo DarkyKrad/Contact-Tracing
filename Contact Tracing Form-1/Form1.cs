@@ -171,7 +171,7 @@ namespace Contact_Tracing_Form_1
             {
                 form3 = new Form3();
                 form3.QRCodeRead += qrcodeauto_fill;
-                form3.FormClosed += delegate (object sender, FormClosedEventArgs e)
+                form3.FormClosed += (sender, e) => 
                 {
                     form3 = null;
                 };
